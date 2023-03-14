@@ -1,6 +1,7 @@
 FROM php:7.4-fpm
 
 ENV TZ=Asia/Taipei
+ENV COMPOSER_ALLOW_SUPERUSER=1
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install PHP and composer dependencies
