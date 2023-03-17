@@ -8,6 +8,12 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt-get install -qq git curl libmcrypt-dev libjpeg-dev libpng-dev libfreetype6-dev libbz2-dev libzip-dev \
     libonig-dev libcurl4-openssl-dev autoconf libssl-dev pkg-config libmpdec-dev procps vim iputils-ping tmux htop unzip
 
+RUN curl -LO https://releases.hashicorp.com/vault/1.13.0/vault_1.13.0_linux_amd64.zip
+
+RUN unzip vault_1.13.0_linux_amd64.zip
+
+RUN mv vault /usr/local/bin/
+
 # CRON POD 需要的
 RUN apt-get install -qq cron
 
