@@ -27,11 +27,7 @@ RUN apt-get remove -y --purge software-properties-common \
 RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --version=2.5.1 --filename=composer
 
 # Install needed extensions
-RUN docker-php-ext-install pdo_mysql zip gd bcmath mbstring curl pcntl sockets opcache
-
-# install mongodb ext
-RUN pecl install mongodb \
-    && docker-php-ext-enable mongodb
+RUN docker-php-ext-install pdo_mysql zip gd bcmath mbstring curl pcntl sockets opcache pcov
 
 # install redis
 RUN pecl install redis && docker-php-ext-enable redis
