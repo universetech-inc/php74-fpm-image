@@ -27,13 +27,16 @@ RUN apt-get remove -y --purge software-properties-common \
 RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --version=2.5.1 --filename=composer
 
 # Install needed extensions
-RUN docker-php-ext-install pdo_mysql zip gd bcmath mbstring curl pcntl sockets opcache pcov
+RUN docker-php-ext-install pdo_mysql zip gd bcmath mbstring curl pcntl sockets opcache
 
 # install redis
 RUN pecl install redis && docker-php-ext-enable redis
 
 # install decimal
 RUN pecl install decimal && docker-php-ext-enable decimal
+
+# install pcov
+RUN pecl install pcov && docker-php-ext-enable pcov
 
 # install datadog
 RUN curl -LO https://github.com/DataDog/dd-trace-php/releases/download/0.56.0/datadog-php-tracer_0.56.0_amd64.deb
