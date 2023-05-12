@@ -39,6 +39,9 @@ RUN pecl install redis && docker-php-ext-enable redis
 # install decimal
 RUN pecl install decimal && docker-php-ext-enable decimal
 
+# install imagick
+RUN pecl install imagick && docker-php-ext-enable imagick
+
 # install datadog
 RUN curl -LO https://github.com/DataDog/dd-trace-php/releases/download/0.56.0/datadog-php-tracer_0.56.0_amd64.deb
 RUN dpkg -i datadog-php-tracer_0.56.0_amd64.deb
