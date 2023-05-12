@@ -6,7 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install PHP and composer dependencies
 RUN apt-get -y update && apt-get install -qq git curl libmcrypt-dev libjpeg-dev libpng-dev libfreetype6-dev libbz2-dev libzip-dev \
-    libonig-dev libcurl4-openssl-dev autoconf libssl-dev pkg-config libmpdec-dev procps vim iputils-ping tmux htop unzip
+    libonig-dev libcurl4-openssl-dev autoconf libssl-dev pkg-config libmpdec-dev procps vim iputils-ping tmux htop unzip imagemagick
 
 RUN curl -LO https://releases.hashicorp.com/vault/1.13.0/vault_1.13.0_linux_amd64.zip
 
